@@ -1,0 +1,15 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] azurerm_resource_group.grupo_recursos (expand)" [label = "azurerm_resource_group.grupo_recursos", shape = "box"]
+		"[root] azurerm_service_plan.appserviceplan (expand)" [label = "azurerm_service_plan.appserviceplan", shape = "box"]
+		"[root] azurerm_windows_web_app.webapp (expand)" [label = "azurerm_windows_web_app.webapp", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]" [label = "provider[\"registry.terraform.io/hashicorp/azurerm\"]", shape = "diamond"]
+		"[root] azurerm_resource_group.grupo_recursos (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"]"
+		"[root] azurerm_service_plan.appserviceplan (expand)" -> "[root] azurerm_resource_group.grupo_recursos (expand)"
+		"[root] azurerm_windows_web_app.webapp (expand)" -> "[root] azurerm_service_plan.appserviceplan (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)" -> "[root] azurerm_windows_web_app.webapp (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/azurerm\"] (close)"
+	}
+}
