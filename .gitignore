@@ -1,1 +1,3 @@
 .terraform/
+# comando para eliminar los archivos terraform que no son necesarios
+# git filter-branch -f --index-filter 'git rm --cached -r --ignore-unmatch .terraform/'
